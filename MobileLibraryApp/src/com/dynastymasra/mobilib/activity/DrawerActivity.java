@@ -18,6 +18,8 @@ import com.dynastymasra.mobilib.R;
 import com.dynastymasra.mobilib.adapter.CustomDrawerAdapter;
 import com.dynastymasra.mobilib.domain.DrawerItem;
 import com.dynastymasra.mobilib.fragment.MainFragment;
+import com.dynastymasra.mobilib.fragment.UserFragment;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -103,28 +105,32 @@ public class DrawerActivity extends Activity {
         Fragment fragment = null;
         Bundle args = new Bundle();
         switch (possition) {
+            case 0:
+                fragment = new UserFragment();
+                args.putString(UserFragment.ITEM_NAME, "0");
+                break;
             case 2:
                 fragment = new MainFragment();
-                Toast.makeText(this, "2", Toast.LENGTH_SHORT).show();
+                args.putString(MainFragment.ITEM_NAME, "2");
                 break;
             case 3:
                 fragment = new MainFragment();
-                Toast.makeText(this, "3", Toast.LENGTH_SHORT).show();
+                args.putString(MainFragment.ITEM_NAME, "3");
                 break;
             case 4:
                 fragment = new MainFragment();
-                Toast.makeText(this, "4", Toast.LENGTH_SHORT).show();
+                args.putString(MainFragment.ITEM_NAME, "4");
                 break;
             case 5:
                 fragment = new MainFragment();
-                Toast.makeText(this, "5", Toast.LENGTH_SHORT).show();
+                args.putString(MainFragment.ITEM_NAME, "5");
                 break;
             case 7:
-                fragment = new MainFragment();
-                Toast.makeText(this, "7", Toast.LENGTH_SHORT).show();
+                fragment = new UserFragment();
+                args.putString(UserFragment.ITEM_NAME, "7");
                 break;
         }
-
+        fragment.setArguments(args);
         FragmentManager frgManager = getFragmentManager();
         frgManager.beginTransaction().replace(R.id.content_frame, fragment).commit();
 

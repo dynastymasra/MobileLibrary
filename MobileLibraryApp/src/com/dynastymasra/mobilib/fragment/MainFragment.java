@@ -17,17 +17,35 @@ import com.dynastymasra.mobilib.adapter.CustomGridAdapter;
  * Blogspot : dynastymasra.wordpress.com | dynastymasra.blogspot.com
  */
 public class MainFragment extends Fragment {
+    public static final String ITEM_NAME = "itemName";
     private GridView gridLayout;
-    private Integer[] images = {R.drawable.ic_booked, R.drawable.ic_cd};
-    private String[] text = {"Text 1", "Text 2"};
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_main, container, false);
 
         gridLayout = (GridView) view.findViewById(R.id.girdViewHome);
-        CustomGridAdapter customGridAdapter = new CustomGridAdapter(getActivity(), images, text);
-        gridLayout.setAdapter(customGridAdapter);
+        if (getArguments().getString(ITEM_NAME).equals("2")) {
+            Integer[] images = {R.drawable.jsp, R.drawable.edition, R.drawable.java, R.drawable.javatwo};
+            String[] text = {"", "", "", ""};
+            CustomGridAdapter customGridAdapter = new CustomGridAdapter(getActivity(), images, text);
+            gridLayout.setAdapter(customGridAdapter);
+        } else if (getArguments().getString(ITEM_NAME).equals("3")) {
+            Integer[] images = {R.drawable.jsp};
+            String[] text = {""};
+            CustomGridAdapter customGridAdapter = new CustomGridAdapter(getActivity(), images, text);
+            gridLayout.setAdapter(customGridAdapter);
+        } else if (getArguments().getString(ITEM_NAME).equals("4")) {
+            Integer[] images = {R.drawable.jsp, R.drawable.edition};
+            String[] text = {"", ""};
+            CustomGridAdapter customGridAdapter = new CustomGridAdapter(getActivity(), images, text);
+            gridLayout.setAdapter(customGridAdapter);
+        } else if (getArguments().getString(ITEM_NAME).equals("5")) {
+            Integer[] images = {R.drawable.jsp, R.drawable.edition, R.drawable.javatwo};
+            String[] text = {"", "", ""};
+            CustomGridAdapter customGridAdapter = new CustomGridAdapter(getActivity(), images, text);
+            gridLayout.setAdapter(customGridAdapter);
+        }
 
         return view;
     }
